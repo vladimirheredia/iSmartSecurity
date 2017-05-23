@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="iSmartSecurity" Height="350" Width="525">
     <Grid>
-        
+        <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,30"/>
+        <Button x:Name="BrowseButton" Margin="20,5" Height="20"         
+                 VerticalAlignment="Bottom" Content="Browse..."                
+                 Click="BrowseButton_Click"/>
     </Grid>
 </Window>
