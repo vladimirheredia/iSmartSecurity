@@ -6,10 +6,32 @@
         xmlns:local="clr-namespace:iSmartSecurity"
         mc:Ignorable="d"
         Title="iSmartSecurity" Height="350" Width="525">
-    <Grid>
-        <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,30"/>
-        <Button x:Name="BrowseButton" Margin="20,5" Height="20"         
+    <Grid Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="5,0,5,0" BorderThickness="1" BorderBrush="White" Width="200" Height="200">
+            <Image Grid.Column="0" x:Name="FacePhoto" Width="200" Height="200" Stretch="Uniform" Margin="10,10,10,30"/>
+        </Border>
+        <Button Grid.Column="0" x:Name="BrowseButton" Margin="20,5" Height="20"         
                  VerticalAlignment="Bottom" Content="Browse..."                
                  Click="BrowseButton_Click"/>
+        <Grid x:Name="Employee" Grid.Column="1" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Employee information found..." Foreground="White" Margin="10,10"/>
+            <TextBlock Grid.Row="1" Text="Welcome Vladimir Heredia!" Foreground="White" Margin="10,10"/>
+        </Grid>
+        <Grid x:Name="Visitor" Grid.Column="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Employee information found..." Foreground="White" Margin="10,10"/>
+            <TextBlock Grid.Row="1" Text="Welcome Vladimir Heredia!" Foreground="White" Margin="10,10"/>
+        </Grid>
     </Grid>
 </Window>

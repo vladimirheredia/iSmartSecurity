@@ -55,7 +55,6 @@ namespace iSmartSecurity
             Title = "Detecting...";
             //calls method to upload and detect face
             FaceRectangle[] faceRects = await UploadAndDetectFaces(filePath);
-            
             Title = String.Format("Detection Finished. {0} face(s) detected", faceRects.Length);
 
             if (faceRects.Length > 0)
