@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace SystemModule
 {
@@ -21,27 +22,9 @@ namespace SystemModule
         /// <summary>
         /// Method to get picture from camera
         /// </summary>
-        public virtual void GetPicture()
+        public virtual void GetPicture(string path)
         {
-
-        }
-
-        /// <summary>
-        /// Method to serialize image
-        /// </summary>
-        /// <param name="img"></param>
-        /// <returns></returns>
-        public virtual byte[] GetImageAsByteArray(string img)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// Make the detect request to AI API
-        /// </summary>
-        public virtual void MakeDetectRequest()
-        {
-
-        }
+           
+        } 
     }
 }

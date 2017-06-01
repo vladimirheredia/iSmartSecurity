@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace UserModule
 {
-    public interface IPerson
+    public abstract class Person
     {
         /// <summary>
         /// Get / set user id
         /// </summary>
-        int UserId { get; set; }
+        public int UserId { get; set; }
         /// <summary>
         /// get / set first name
         /// </summary>
-        string FirstName { get; set; }
+        public string FirstName { get; set; }
         /// <summary>
         /// get / set last name
         /// </summary>
-        string LastName { get; set; }
+        public string LastName { get; set; }
 
         /// <summary>
         /// get / set user's age
         /// </summary>
-        int age { get; set; }
+        public int age { get; set; }
 
         /// <summary>
         /// get /set the user's location
         /// </summary>
-        Location PersonLocation { get; set; }
+        public Location PersonLocation { get; set; }
 
         /// <summary>
         /// method to send message between classes
         /// </summary>
-        void SendMessage();
+        public virtual void SendMessage() { }
     }
 }

@@ -18,9 +18,9 @@ namespace SystemModule
         /// <summary>
         /// get person's picture
         /// </summary>
-        public void GetPicture()
+        public string GetPicture(string path)
         {
-
+            return path;
         }
     }
 }

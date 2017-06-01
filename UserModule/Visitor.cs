@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserModule
 {
-    public class Visitor : IPerson
+    public class Visitor : Person
     {
         /// <summary>
         /// get/set age
