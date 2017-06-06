@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace iSmartSecurity.Properties
+namespace iSmartSecurityView.Properties
 {
 
 

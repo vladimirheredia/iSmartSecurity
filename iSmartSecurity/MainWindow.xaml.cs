@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace iSmartSecurity
+namespace iSmartSecurityView
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

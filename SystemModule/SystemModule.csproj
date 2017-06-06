@@ -71,6 +71,10 @@
     <Compile Include="SecuritySystem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BehaviorModule\BehaviorModule.csproj">
+      <Project>{27ECC7D4-1CF9-4D69-A6E8-588F9DCE83E1}</Project>
+      <Name>BehaviorModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserModule\UserModule.csproj">
       <Project>{A79341D2-A506-45F5-860B-8386299AE696}</Project>
       <Name>UserModule</Name>

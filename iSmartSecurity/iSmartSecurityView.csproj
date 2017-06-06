@@ -119,6 +119,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BehaviorModule\BehaviorModule.csproj">
+      <Project>{27ECC7D4-1CF9-4D69-A6E8-588F9DCE83E1}</Project>
+      <Name>BehaviorModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SystemModule\SystemModule.csproj">
       <Project>{8E730AF1-53EA-481E-A866-626A7FE03352}</Project>
       <Name>SystemModule</Name>

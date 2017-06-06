@@ -1,5 +1,4 @@
-﻿using System.Windows.Media.Imaging;
-using UserModule;
+﻿using SystemModule;
 
 namespace SystemModule
 {

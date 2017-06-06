@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BehaviorModule;
 using System.Windows.Media.Imaging;
 using SystemModule;
 using UserModule;
 
-namespace iSmartSecurity
+namespace iSmartSecurityView
 {
     /// <summary>
     /// Facade to serve as an interface between modules 
@@ -37,10 +33,14 @@ namespace iSmartSecurity
             }
         }
 
-
+        /// <summary>
+        /// Gets's Image from Cam
+        /// </summary>
+        /// <param name="path"></param>
         public void getPicture(string path)
         {
-            Cam.GetPicture(path);
+            ICommand cmd = Cam.CaptureImageCommand();
+            cmd.Execute();
             securitySystem.GetPicture(path);
         }
 

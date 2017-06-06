@@ -1,9 +1,19 @@
-﻿using UserModule;
+﻿using BehaviorModule;
+using UserModule;
 
 namespace SystemModule
 {
     public class Camera
     {
+
+
+        ICommand cmd = null;
+        public ICommand CaptureImageCommand()
+        {
+            cmd = new CaptureCommand();
+            return cmd;
+        }
+
 
         /// <summary>
         /// get/set the camera's IP address
