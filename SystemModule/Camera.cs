@@ -11,6 +11,7 @@ namespace SystemModule
         public ICommand CaptureImageCommand()
         {
             cmd = new CaptureCommand();
+           // cmd.Execute();
             return cmd;
         }
 

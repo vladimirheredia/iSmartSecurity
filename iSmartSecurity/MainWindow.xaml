@@ -3,35 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cam="clr-namespace:WebcamControl;assembly=WebcamControl"
         xmlns:local="clr-namespace:iSmartSecurityView"
+        xmlns:views="clr-namespace:iSmartSecurity.Views"
+        xmlns:viewmodels="clr-namespace:iSmartSecurity.ViewModels"
         mc:Ignorable="d"
-        Title="iSmartSecurity" Height="350" Width="525">
-    <Grid Background="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Margin="5,0,5,0" BorderThickness="1" BorderBrush="White" Width="200" Height="200">
-            <Image Grid.Column="0" x:Name="FacePhoto" Width="200" Height="200" Stretch="Uniform" Margin="10,10,10,30"/>
-        </Border>
-        <Button Grid.Column="0" x:Name="BrowseButton" Margin="20,5" Height="20"         
-                 VerticalAlignment="Bottom" Content="Browse..."                
-                 Click="BrowseButton_Click"/>
-        <Grid x:Name="Employee" Grid.Column="1" Visibility="Visible">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Employee information found..." Foreground="White" Margin="10,10"/>
-            <TextBlock Grid.Row="1" Text="Welcome Vladimir Heredia!" Foreground="White" Margin="10,10"/>
-        </Grid>
-        <Grid x:Name="Visitor" Grid.Column="1" Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Employee information found..." Foreground="White" Margin="10,10"/>
-            <TextBlock Grid.Row="1" Text="Welcome Vladimir Heredia!" Foreground="White" Margin="10,10"/>
-        </Grid>
+        Title="iSmartSecurity" Height="450" Width="625">
+    <Window.Resources>
+        <DataTemplate x:Key="DevicesListTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="WelcomeScreenTemplate" DataType="{x:Type viewmodels:WelcomeScreenViewModel}">
+            <views:WelcomeScreen DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="AuthenticateViewTemplate" DataType="{x:Type viewmodels:AuthenticatedViewModel}">
+            <views:AuthenticatedView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="CameraViewTemplate" DataType="{x:Type viewmodels:CameraViewModel}">
+            <views:CameraView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="UnathenticateViewTemplate" DataType="{x:Type viewmodels:UnathenticatedViewModel}">
+            <views:UnathenticatedView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="HelpScreenViewTemplate" DataType="{x:Type viewmodels:HelpScreenViewModel}">
+            <views:HelpScreenView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid  Background="#FF0DD6FF">
+        <ContentControl Content="{Binding}" Name="contentControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

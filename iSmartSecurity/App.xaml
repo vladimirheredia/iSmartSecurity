@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:iSmartSecurityView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ControlTemplate TargetType="Button" x:Key="IconButton">
+            <Grid>
+                <Border MinWidth="100" Padding="20" BorderBrush="#FFF" BorderThickness="2" CornerRadius="10">
+                    <StackPanel>
+                        <TextBlock Text="{TemplateBinding Tag}" FontFamily="Font/vladifont.ttf#vladifont" TextAlignment="Center" FontSize="20" Foreground="#FFF"/>
+                        <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" Foreground="#FFF"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

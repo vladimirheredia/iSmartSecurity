@@ -1,4 +1,5 @@
 ﻿using BehaviorModule;
+using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using SystemModule;
 using UserModule;
@@ -15,11 +16,18 @@ namespace iSmartSecurityView
         public Person person = null;
         public SecuritySystem securitySystem = null;
 
+        public bool IsMatched;
+
         public iSmartSecurityFacade()
         {
             Cam = new Camera();
             securitySystem = new SecuritySystem();
-            
+        }
+
+
+        public bool GetMatch()
+        {
+            return securitySystem.getMatch();
         }
 
         /// <summary>
@@ -37,11 +45,14 @@ namespace iSmartSecurityView
         /// Gets's Image from Cam
         /// </summary>
         /// <param name="path"></param>
-        public void getPicture(string path)
+        public async Task<bool> getPicture(string path)
         {
+            bool IsMatchFound = false;
             ICommand cmd = Cam.CaptureImageCommand();
-            cmd.Execute();
-            securitySystem.GetPicture(path);
+           // cmd.Execute();
+           IsMatchFound = await securitySystem.GetPicture(path);
+
+            return IsMatchFound;
         }
 
         /// <summary>

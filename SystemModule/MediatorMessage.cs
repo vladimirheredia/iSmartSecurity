@@ -22,9 +22,9 @@ namespace SystemModule
         /// <summary>
         /// Method to get picture from camera
         /// </summary>
-        public virtual void GetPicture(string path)
+        public virtual async  Task<bool> GetPicture(string path)
         {
-           
+            return true;
         } 
     }
 }
