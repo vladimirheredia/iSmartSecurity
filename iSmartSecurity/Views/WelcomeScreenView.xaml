@@ -5,21 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:iSmartSecurity.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             
+             d:DesignHeight="300" d:DesignWidth="400">
     <Grid  Background="#FF0DD6FF">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
             
             <Border CornerRadius="5" Margin="10" BorderBrush="#eee" Width="auto" Opacity=".7">
                 <StackPanel  Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock Foreground="#FFF" FontWeight="Bold" Text="t" FontFamily="../Font/vladifont.ttf#vladifont" FontSize="30" TextAlignment="Center"/>
-                    <TextBlock Foreground="#FFF" Text="Welcome to" FontSize="10" TextAlignment="Center"/>
+                    <TextBlock Foreground="#FFF" Text="Welcome to" FontSize="14" TextAlignment="Center"/>
                     <TextBlock Foreground="#FFF" FontWeight="Bold" Text="Contoso, Inc." FontSize="16" TextAlignment="Center"/>
                 </StackPanel>
             </Border>
             <TextBlock Text="Are you a..." FontSize="12" Foreground="#FFF" Margin="0,20,0,0" TextAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="20" Content="Employee" Tag="e" Command="{Binding OnSelectPerson}" Template="{StaticResource IconButton}" />
-                <Button Margin="20" Content="Visitor" Tag="d" Template="{StaticResource IconButton}"  Command="{Binding OnSelectPerson}"/>
+                <Button Margin="20" Content="Visitor" Tag="d" Template="{StaticResource IconButton}"  Command="{Binding OnSelectVisitor}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

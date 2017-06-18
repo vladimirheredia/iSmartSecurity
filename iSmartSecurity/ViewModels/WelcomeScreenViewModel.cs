@@ -13,9 +13,23 @@ namespace iSmartSecurity.ViewModels
     {
       public  System.Windows.Input.ICommand OnSelectPerson { get; set; }
 
+      public System.Windows.Input.ICommand OnSelectVisitor { get; set; }
+
         public WelcomeScreenViewModel()
         {
             OnSelectPerson = new DelegateCommand<object>(OnSelectePersonEvent);
+
+            OnSelectVisitor = new DelegateCommand<object>(OnSelectVisitorEvent);
+        }
+
+        /// <summary>
+        /// When user selects visitor buttonf open visitor's page
+        /// </summary>
+        /// <param name="obj"></param>
+        private void OnSelectVisitorEvent(object obj)
+        {
+            VideoNavigationSingleton.Instance.NavigateToPage(VideoNavigationSingleton.ContentPages.VisitorFormView);
+
         }
 
         /// <summary>

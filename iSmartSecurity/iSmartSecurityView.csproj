@@ -104,11 +104,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\EmployeeVisitorRepository.cs" />
     <Compile Include="VideoNavigationSingleton.cs" />
     <Compile Include="ViewModels\AuthenticatedViewModel.cs" />
     <Compile Include="ViewModels\CameraViewModel.cs" />
     <Compile Include="ViewModels\HelpScreenViewModel.cs" />
     <Compile Include="ViewModels\UnathenticatedViewModel.cs" />
+    <Compile Include="ViewModels\VisitorFormViewModel.cs" />
+    <Compile Include="ViewModels\VisitorViewModel.cs" />
     <Compile Include="ViewModels\WelcomeScreenViewModel.cs" />
     <Compile Include="Views\AuthenticatedView.xaml.cs">
       <DependentUpon>AuthenticatedView.xaml</DependentUpon>
@@ -121,6 +124,12 @@
     </Compile>
     <Compile Include="Views\UnathenticatedView.xaml.cs">
       <DependentUpon>UnathenticatedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorFormView.xaml.cs">
+      <DependentUpon>VisitorFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisitorView.xaml.cs">
+      <DependentUpon>VisitorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomeScreenView.xaml.cs">
       <DependentUpon>WelcomeScreenView.xaml</DependentUpon>
@@ -151,6 +160,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UnathenticatedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisitorFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisitorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,7 +224,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Resource Include="images\unauthorized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\authorized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\vh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

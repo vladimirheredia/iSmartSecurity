@@ -20,7 +20,9 @@ namespace iSmartSecurityView
             CameraScreen,
             HelpScreen,
             Authentication,
-            Unauthenticated
+            Unauthenticated,
+            VisitorFormView,
+            VisitorView
         }
 
         public static VideoNavigationSingleton Instance
@@ -51,7 +53,7 @@ namespace iSmartSecurityView
                     Content.Content = camview;
                     break;
                 case ContentPages.Authentication:
-                    AuthenticatedView authView = new AuthenticatedView();
+                    AuthenticatedView authView = new AuthenticatedView((Guid)context);
                     Content.Content = authView;
                     break;
                 case ContentPages.WelcomeScreen:
@@ -65,6 +67,14 @@ namespace iSmartSecurityView
                 case ContentPages.Unauthenticated:
                     UnathenticatedView unauthView = new UnathenticatedView();
                     Content.Content = unauthView;
+                    break;
+                case ContentPages.VisitorFormView:
+                    VisitorFormView formView = new VisitorFormView();
+                    Content.Content = formView;
+                    break;
+                case ContentPages.VisitorView:
+                    VisitorView vistorView = new VisitorView(context);
+                    Content.Content = vistorView;
                     break;
                 default:
                     break;

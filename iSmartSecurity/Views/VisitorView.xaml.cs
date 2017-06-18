@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace iSmartSecurity.Views
 {
     /// <summary>
-    /// Interaction logic for HelpScreenView.xaml
+    /// Interaction logic for VisitorView.xaml
     /// </summary>
-    public partial class HelpScreenView : UserControl
+    public partial class VisitorView : UserControl
     {
-        public HelpScreenView()
+        public VisitorView(object obj)
         {
             InitializeComponent();
-            DataContext = new HelpScreenViewModel();
+            DataContext = new VisitorViewModel(obj);
         }
     }
 }

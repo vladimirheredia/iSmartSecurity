@@ -41,6 +41,8 @@ namespace SystemModule
 
         public bool IsMatched { get; set; }
 
+        public Guid PersistedId { get; set; }
+
         /// <summary>
         /// Gets's face count in a give image
         /// </summary>
@@ -124,6 +126,9 @@ namespace SystemModule
                 if(faces.Count() > 0)
                 {
                     var confidence = faces.FirstOrDefault().Confidence;
+                    PersistedId = faces.FirstOrDefault().PersistedFaceId;
+
+
                     if (confidence > 0.5)
                     {
                         IsMatched = true;

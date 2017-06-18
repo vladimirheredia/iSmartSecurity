@@ -1,4 +1,5 @@
 ﻿using BehaviorModule;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using SystemModule;
@@ -18,6 +19,8 @@ namespace iSmartSecurityView
 
         public bool IsMatched;
 
+        public Guid FaceId;
+
         public iSmartSecurityFacade()
         {
             Cam = new Camera();
@@ -28,6 +31,14 @@ namespace iSmartSecurityView
         public bool GetMatch()
         {
             return securitySystem.getMatch();
+        }
+
+        public Guid PersistedFaceId
+        {
+            get
+            {
+                return securitySystem.proxy.PersistedId;
+            }
         }
 
         /// <summary>

@@ -9,11 +9,13 @@ using WebcamControl;
 using System;
 using iSmartSecurityView;
 using System.Windows.Threading;
+using System.Linq;
 
 namespace iSmartSecurity.ViewModels
 {
     public class CameraViewModel : WpfBase
     {
+        //use facade to access system's module
         private iSmartSecurityFacade facade = new iSmartSecurityFacade();
         public System.Windows.Input.ICommand AuthenticateClick { get; set; }
         public CameraViewModel( Webcam cam, ProgressBar bar)
@@ -23,11 +25,6 @@ namespace iSmartSecurity.ViewModels
             this.Bar = bar;
 
             AuthenticateClick = new DelegateCommand<object>(AuthenticateEvent);
-
-            // Binding binding_1 = new Binding("SelectedValue");
-            // binding_1.Source = DeviceList;
-            //// WebCam.SetBinding(Webcam.VideoDeviceProperty, binding_1);
-            //webCam.VideoDevice 
 
             // Create directory for saving image files
             string imagePath = @"C:\WebcamSnapshots";
@@ -41,17 +38,18 @@ namespace iSmartSecurity.ViewModels
             WebCam.ImageDirectory = imagePath;
             WebCam.FrameRate = 30;
             WebCam.FrameSize = new System.Drawing.Size(300, 300);
-            // WebcamCtrl.Height = 300;
 
-            // Find available a/v devices
-            //var vidDevices = EncoderDevices.FindDevices(EncoderDeviceType.Video);
-            //DeviceList.ItemsSource = vidDevices;
             //DeviceList.SelectedIndex = 1;
             webCam.VideoDevice = EncoderDevices.FindDevices(EncoderDeviceType.Video)[1];
             WebCam.StartPreview();            
 
         }
 
+
+        /// <summary>
+        /// Authenticate event
+        /// </summary>
+        /// <param name="obj"></param>
         private async void AuthenticateEvent(object obj)
         {
             Bar.Visibility = System.Windows.Visibility.Visible;
@@ -63,17 +61,30 @@ namespace iSmartSecurity.ViewModels
             DirectoryInfo directory = new DirectoryInfo(imagePath);
             foreach (var item in directory.GetFiles())
             {
-                item.Delete();
+                try
+                {
+                    item.Delete();
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+                
             }
 
             WebCam.TakeSnapshot();
 
-            var path = directory.GetFiles()[0].FullName;
-           var isMatchFound = await facade.getPicture(path);
+            var path = directory.GetFiles().OrderByDescending(f=> f.LastWriteTime).First().FullName;
+            var isMatchFound = await facade.getPicture(path);
+            var faceId = facade.PersistedFaceId;
 
             if (isMatchFound)
             {
-                VideoNavigationSingleton.Instance.NavigateToPage(VideoNavigationSingleton.ContentPages.Authentication);
+                VideoNavigationSingleton.Instance.NavigateToPage(VideoNavigationSingleton.ContentPages.Authentication, faceId);
+            }else
+            {
+                VideoNavigationSingleton.Instance.NavigateToPage(VideoNavigationSingleton.ContentPages.Unauthenticated);
+
             }
 
             Bar.Visibility = System.Windows.Visibility.Hidden;

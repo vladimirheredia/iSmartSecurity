@@ -31,7 +31,7 @@ namespace UserModule
         /// <summary>
         /// get /set the user id
         /// </summary>
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// This method is used to send message to other classes.

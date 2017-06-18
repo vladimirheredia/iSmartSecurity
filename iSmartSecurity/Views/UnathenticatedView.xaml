@@ -6,7 +6,25 @@
              xmlns:local="clr-namespace:iSmartSecurity.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+    <Grid Background="#FF0DD6FF">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <Border BorderThickness="3" BorderBrush="#eee" CornerRadius="50" Width="100" Height="100" >
+                <Border  BorderThickness="1" CornerRadius="50" Width="90" Height="90">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="..\images\unauthorized.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+            </Border>
+            <Border CornerRadius="10" Margin="10" Width="auto" Height="70" Opacity=".7">
+                <StackPanel Orientation="Vertical"  VerticalAlignment="Center" Margin="0,-30,0,-21.6">
+                    <TextBlock Text="You're not" FontSize="12" Foreground="#FFF" TextAlignment="Center"/>
+                    <TextBlock Text="Authorized" FontSize="18" FontWeight="Bold" Foreground="#FFF" TextAlignment="Center"/>
+                    <TextBlock Text="Please try again!" FontSize="11" FontWeight="Bold" Foreground="#FFF" TextAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <TextBlock Text="{Binding Timer}" Foreground="#FFF" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Bottom" Margin="0,0,0,30" />
     </Grid>
 </UserControl>

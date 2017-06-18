@@ -21,10 +21,10 @@ namespace iSmartSecurity.Views
     /// </summary>
     public partial class AuthenticatedView : UserControl
     {
-        public AuthenticatedView()
+        public AuthenticatedView(Guid context)
         {
             InitializeComponent();
-            DataContext = new AuthenticatedViewModel();
+            DataContext = new AuthenticatedViewModel(context);
         }
     }
 }

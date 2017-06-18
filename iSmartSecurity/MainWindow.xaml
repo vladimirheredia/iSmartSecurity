@@ -8,6 +8,9 @@
         xmlns:views="clr-namespace:iSmartSecurity.Views"
         xmlns:viewmodels="clr-namespace:iSmartSecurity.ViewModels"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="..\images\icon.png"
         Title="iSmartSecurity" Height="450" Width="625">
     <Window.Resources>
         <DataTemplate x:Key="DevicesListTemplate">
