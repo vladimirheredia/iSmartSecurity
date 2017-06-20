@@ -28,11 +28,18 @@ namespace iSmartSecurityView
         }
 
 
+        /// <summary>
+        /// returns true if there was a match else false
+        /// </summary>
+        /// <returns></returns>
         public bool GetMatch()
         {
             return securitySystem.getMatch();
         }
 
+        /// <summary>
+        /// returns the persited face id from the cloud
+        /// </summary>
         public Guid PersistedFaceId
         {
             get
@@ -60,8 +67,7 @@ namespace iSmartSecurityView
         {
             bool IsMatchFound = false;
             ICommand cmd = Cam.CaptureImageCommand();
-           // cmd.Execute();
-           IsMatchFound = await securitySystem.GetPicture(path);
+            IsMatchFound = await securitySystem.GetPicture(path);
 
             return IsMatchFound;
         }
@@ -73,9 +79,9 @@ namespace iSmartSecurityView
         /// <returns></returns>
         public Person getPerson(bool isEmp)
         {
-            return  PersonFactory.CreatePerson(isEmp);
+            return PersonFactory.CreatePerson(isEmp);
         }
 
-        
+
     }
 }

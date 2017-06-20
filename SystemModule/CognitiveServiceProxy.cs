@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using Microsoft.ProjectOxford.Face.Contract;
 using System.IO;
 using Microsoft.ProjectOxford.Face;
-using System.Windows.Media;
-using System.Windows;
 using System.Diagnostics;
 using BehaviorModule;
 
@@ -97,8 +92,12 @@ namespace SystemModule
                 {
                     var faces = await faceServiceClient.DetectAsync(imageFileStream);
                     var faceRects = faces.Select(face => face.FaceRectangle);
-                    var faceId = faces.FirstOrDefault().FaceId;
-                    isMatched = await MatchPersonFace(faceId);
+                    if(faceRects.Count() > 0)
+                    {
+                        var faceId = faces.FirstOrDefault().FaceId;
+                        isMatched = await MatchPersonFace(faceId);
+                    }
+                   
                    
                 }
             }

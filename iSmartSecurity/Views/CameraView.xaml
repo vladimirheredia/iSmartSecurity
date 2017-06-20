@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <cam:Webcam Grid.Row="1" Panel.ZIndex="2" Name="WebcamCtrl" Margin="10" Width="300" Height="300" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <cam:Webcam Grid.Row="1" Panel.ZIndex="2" Name="WebcamCtrl" Margin="10" Width="200" Height="200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <ProgressBar Name="progressBar" Visibility="Hidden" IsIndeterminate="True" Height="10" HorizontalAlignment="Stretch" Grid.Row="2" Foreground="White" Background="Transparent" Margin="10,0,10,0"/>
         <Button Grid.Row="3" Margin="20" Content="Authenticate" Tag="a" Template="{StaticResource IconButton}" Command="{Binding AuthenticateClick}" />
         

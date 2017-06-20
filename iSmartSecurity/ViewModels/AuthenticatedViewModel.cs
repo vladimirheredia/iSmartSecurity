@@ -2,15 +2,11 @@
 using iSmartSecurity.Models;
 using iSmartSecurityView;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 
 namespace iSmartSecurity.ViewModels
 {
-    class AuthenticatedViewModel : WpfBase
+    public class AuthenticatedViewModel : WpfBase
     {
         Guid Context { get; set; }
         public String Building { get; set; }
@@ -21,11 +17,11 @@ namespace iSmartSecurity.ViewModels
         {
             //for testing only
             ImagePath = @"C:\pic\vh.png";
-            this.Context= context;
+            this.Context = context;
 
             foreach (var item in EmployeeVisitorRepository.Employees)
             {
-                if(item.UserId == this.Context)
+                if (item.UserId == this.Context)
                 {
                     this.FullName = item.FirstName + " " + item.LastName;
                     Building = "Building: " + item.PersonLocation.Building;
@@ -84,6 +80,10 @@ namespace iSmartSecurity.ViewModels
                 NotifyPropertyChanged("FullName");
             }
         }
+
+        /// <summary>
+        /// Timer property for the view
+        /// </summary>
         private string _timer;
         public string Timer
         {

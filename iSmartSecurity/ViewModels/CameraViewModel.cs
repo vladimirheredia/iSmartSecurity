@@ -37,8 +37,8 @@ namespace iSmartSecurity.ViewModels
             //WebcamCtrl.VideoDirectory = videoPath;
             WebCam.ImageDirectory = imagePath;
             WebCam.FrameRate = 30;
-            WebCam.FrameSize = new System.Drawing.Size(300, 300);
-
+            WebCam.FrameSize = new System.Drawing.Size(200, 200);
+            webCam.Width = 350;
             //DeviceList.SelectedIndex = 1;
             webCam.VideoDevice = EncoderDevices.FindDevices(EncoderDeviceType.Video)[1];
             WebCam.StartPreview();            
